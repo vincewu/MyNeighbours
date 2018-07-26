@@ -1,6 +1,6 @@
 import psycopg2, configparser
 
-from spider.item.address import Address
+from MyNeighbours.item.address import Address
 
 
 class DB_Pipeline(object):

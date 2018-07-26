@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for proj project
+# Scrapy settings for MyNeighbours project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'spider'
+BOT_NAME = 'MyNeighbours'
 
-SPIDER_MODULES = ['spider.spiders']
-NEWSPIDER_MODULE = 'spider.spiders'
+SPIDER_MODULES = ['MyNeighbours.spiders']
+NEWSPIDER_MODULE = 'MyNeighbours.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'proj (+http://www.yourdomain.com)'
+#USER_AGENT = 'MyNeighbours (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'proj.middlewares.ProjSpiderMiddleware': 543,
+#    'MyNeighbours.middlewares.MyneighboursSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'proj.middlewares.ProjDownloaderMiddleware': 543,
+#    'MyNeighbours.middlewares.MyneighboursDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions

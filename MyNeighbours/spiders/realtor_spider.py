@@ -1,6 +1,6 @@
 import scrapy
 
-from spider.item.address import Address
+from MyNeighbours.item.address import Address
 
 
 class RealtorSpider(scrapy.Spider):
