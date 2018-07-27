@@ -19,6 +19,7 @@ class DB_Pipeline(object):
         self.conn.close()
 
     def process(self, item, spider):
+        print("in process {}", isinstance(item, Address))
         if isinstance(item, Address):
             self.cursor.execute('insert into address (address, town, state, zipcode) values (%s, %s, %s, %s)',
                                 (item.address, item.town, item.state, item.zipcode))
