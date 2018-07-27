@@ -17,7 +17,7 @@ class DB_Pipeline(object):
         self.cursor.close()
         self.conn.close()
 
-    def process(self, item, spider):
+    def process_item(self, item, spider):
         self.cursor.execute('insert into address (address, town, state, zipcode) values (%s, %s, %s, %s)',
                             (item.address, item.town, item.state, item.zipcode))
         return item
