@@ -1,6 +1,5 @@
-import psycopg2, configparser
-
-from MyNeighbours.item.address import Address
+import psycopg2
+import configparser
 
 
 class DB_Pipeline(object):
@@ -19,8 +18,6 @@ class DB_Pipeline(object):
         self.conn.close()
 
     def process(self, item, spider):
-        print("in process {}", isinstance(item, Address))
-        if isinstance(item, Address):
-            self.cursor.execute('insert into address (address, town, state, zipcode) values (%s, %s, %s, %s)',
-                                (item.address, item.town, item.state, item.zipcode))
+        self.cursor.execute('insert into address (address, town, state, zipcode) values (%s, %s, %s, %s)',
+                            (item.address, item.town, item.state, item.zipcode))
         return item
