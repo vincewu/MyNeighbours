@@ -19,5 +19,5 @@ class DB_Pipeline(object):
 
     def process_item(self, item, spider):
         self.cursor.execute('insert into address (address, town, state, zipcode) values (%s, %s, %s, %s)',
-                            (item.address, item.town, item.state, item.zipcode))
+                            (item['address'], item['town'], item['state'], item['zipcode']))
         return item
