@@ -1,3 +1,4 @@
+import redis
 import scrapy
 
 from MyNeighbours.item.address import Address
@@ -6,8 +7,21 @@ from MyNeighbours.item.address import Address
 class RealtorSpider(scrapy.Spider):
     name = 'RealtorSpider'
     start_urls = ['https://www.realtor.com/propertyrecord-search/Winchester_MA']
+    key = 'urlsToScrapy'
+
+    def __init__(self):
+        self.r = redis.Redis(host='server', charset="utf-8", decode_responses=True)
+
+    def start_requests(self):
+        url = self.r.lpop(self.key)
+        while url:
+            yield scrapy.Request(url, self.parse)
 
     def parse(self, response):
+        if response.status == 401:
+            self.r.lpush(self.key, response.url)
+            return
+
         address_table = response.css('.address-table').extract_first()
 
         if address_table:
