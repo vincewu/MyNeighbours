@@ -18,7 +18,7 @@ class RealtorSpider(scrapy.Spider):
             yield scrapy.Request(url, self.parse)
 
     def parse(self, response):
-        if response.status == 401:
+        if response.status == 302:
             self.r.lpush(self.key, response.url)
             return
 
