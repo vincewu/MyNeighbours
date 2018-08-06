@@ -8,6 +8,7 @@ class RealtorSpider(scrapy.Spider):
     name = 'RealtorSpider'
     start_urls = ['https://www.realtor.com/propertyrecord-search/Winchester_MA']
     key = 'urlsToScrapy'
+    handle_httpstatus_list = [302]
 
     def __init__(self):
         self.r = redis.Redis(host='server', charset="utf-8", decode_responses=True)
